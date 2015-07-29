@@ -1,5 +1,5 @@
 # Schaukuchl
-This is an application for a Restaurant called "Schaukuchl" in Vienna.
+This is an Android app for a Restaurant called "Schaukuchl" in Vienna.
 
 ## Features
 * Display the current menu!
