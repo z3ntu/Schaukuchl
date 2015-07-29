@@ -13,4 +13,5 @@ Due to the fact, that the app parses the source code (HTML structure) of www.sch
 * If you have any suggestions, feel free to let me know!
 
 ## Screenshot
-[[ http://i.imgur.com/N7cxvuY.png | width = 250px ]]
+
+<img src="http://i.imgur.com/N7cxvuY.png" width="250px">
