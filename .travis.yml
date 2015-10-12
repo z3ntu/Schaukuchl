@@ -1,7 +1,4 @@
 language: android
-env:
-  global:
-    - ADB_INSTALL_TIMEOUT=8
 
 # Emulator Management: Create, Start and Wait
 before_script:
