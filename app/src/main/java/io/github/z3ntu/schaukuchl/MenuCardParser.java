@@ -23,7 +23,6 @@ import org.jsoup.select.Elements;
 public class MenuCardParser implements Response.ErrorListener, Response.Listener<String> {
 
     public static final String URL = "http://www.schaukuchl.at/tk/tk.htm";
-//    public static final String URL = "http://128.199.32.197/schaukuchl/tk.htm";
 
     RequestQueue requestQueue;
     RecyclerViewAdapter recyclerViewAdapter;
@@ -73,14 +72,12 @@ public class MenuCardParser implements Response.ErrorListener, Response.Listener
                 Element span = row.child(0).child(0).child(0);
                 String title = span.ownText().replace("Tageskarte", "Tageskarte ");
 
-                Schaukuchl.log(Schaukuchl.LogLevel.VERBOSE, "FIRST ROW!!!!!!!!!!!!");
+                Schaukuchl.log(Schaukuchl.LogLevel.VERBOSE, "First Row!");
                 Schaukuchl.log(Schaukuchl.LogLevel.DEBUG, title);
                 actionBar.setTitle(title);
             }
             /* not headline */
             else {
-//                Schaukuchl.log(Schaukuchl.LogLevel.VERBOSE, "NOT FIRST ROW!!!!!!!!!!!!!");
-
                 /* NAME */
                 Element pName = row.child(1).child(0);
                 String name = pName.child(0).child(0).ownText();
@@ -91,11 +88,7 @@ public class MenuCardParser implements Response.ErrorListener, Response.Listener
                 /* PRICE */
                 Element spanPrice = row.child(2).child(0).child(0).child(0);
                 String price = spanPrice.ownText().replace(",", ".");
-                boolean aus;
-                if (price.contains("AUS"))
-                    aus = true;
-                else
-                    aus = false;
+                boolean aus = price.contains("AUS");
 
                 Food food = new Food(name, price, aus);
                 Schaukuchl.log(Schaukuchl.LogLevel.DEBUG, food.toString());
@@ -105,11 +98,9 @@ public class MenuCardParser implements Response.ErrorListener, Response.Listener
 
                 editor.putString("food_" + counter, SaveHelper.getStringFromFood(newFood));
                 Schaukuchl.log(Schaukuchl.LogLevel.INFO, "food_" + counter);
-//                set.add(SaveHelper.getStringFromFood(newFood));
             }
             counter++;
         }
-//        editor.putStringSet("FoodStorage", set);
         editor.apply();
     }
 }

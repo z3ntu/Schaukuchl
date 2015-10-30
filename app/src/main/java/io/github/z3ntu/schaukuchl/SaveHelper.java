@@ -6,7 +6,7 @@ package io.github.z3ntu.schaukuchl;
 public class SaveHelper {
 
     public static String getStringFromFood(Food food) {
-        return food.name+"/~"+food.price+"/~"+food.aus;
+        return food.name + "/~" + food.price + "/~" + food.aus;
     }
 
     public static Food getFoodFromString(String food) {

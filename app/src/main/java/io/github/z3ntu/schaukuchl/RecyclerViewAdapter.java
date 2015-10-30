@@ -16,18 +16,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private ArrayList<Food> mDataset;
 
-
-    public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView mName;
-        public TextView mPrice;
-
-        public ViewHolder(View v) {
-            super(v);
-            mName = (TextView) v.findViewById(R.id.name_text);
-            mPrice = (TextView) v.findViewById(R.id.price_text);
-        }
-    }
-
     public RecyclerViewAdapter() {
         mDataset = new ArrayList<>();
     }
@@ -35,15 +23,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item, parent, false);
-        ViewHolder vh = new ViewHolder(v);
-        return vh;
+        return new ViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         viewHolder.mName.setText(mDataset.get(i).name);
         viewHolder.mPrice.setText(mDataset.get(i).price);
-        if(mDataset.get(i).aus) {
+        if (mDataset.get(i).aus) {
             viewHolder.mName.setTextColor(Color.RED);
             viewHolder.mPrice.setTextColor(Color.RED);
         }
@@ -57,6 +44,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void add(Food food) {
         mDataset.add(food);
         notifyItemInserted(mDataset.size());
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+        public TextView mName;
+        public TextView mPrice;
+
+        public ViewHolder(View v) {
+            super(v);
+            mName = (TextView) v.findViewById(R.id.name_text);
+            mPrice = (TextView) v.findViewById(R.id.price_text);
+        }
     }
 
 
