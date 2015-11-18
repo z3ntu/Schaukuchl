@@ -10,11 +10,8 @@ env:
 # Emulator Management: Create, Start and Wait
 before_script:
   - uname -a
-  - echo no | android create avd --force -n test -t android-23
-  - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
-  - adb devices
-  - adb shell input keyevent 82 &
+  
+script: gradle build
 
 android:
   components:
