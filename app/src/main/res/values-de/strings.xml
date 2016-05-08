@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Schaukuchl</string>
+    <string name="offlineData">App ist im offline Modus! Gespeicherte Daten werden benutzt.</string>
+</resources>

@@ -88,10 +88,12 @@ public class MenuCardParser implements Response.ErrorListener, Response.Listener
                 /* PRICE */
                 Element spanPrice = row.child(2).child(0).child(0).child(0);
                 String price = spanPrice.ownText().replace(",", ".");
+
+                /* AUS */
                 boolean aus = price.contains("AUS");
 
-                Food food = new Food(name, price, aus);
-                Schaukuchl.log(Schaukuchl.LogLevel.DEBUG, food.toString());
+//                Food food = new Food(name, price, aus);
+//                Schaukuchl.log(Schaukuchl.LogLevel.DEBUG, food.toString());
 
                 Food newFood = new Food(name, price, aus);
                 recyclerViewAdapter.add(newFood);

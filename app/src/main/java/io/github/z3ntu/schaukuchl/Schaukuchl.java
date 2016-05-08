@@ -35,7 +35,6 @@ public class Schaukuchl extends AppCompatActivity {
 
         menuCardParser = new MenuCardParser(getApplicationContext(), mAdapter, getSupportActionBar(), getSharedPreferences("FoodStorage", MODE_PRIVATE));
         menuCardParser.getFood();
-
     }
 
     @Override
@@ -50,6 +49,6 @@ public class Schaukuchl extends AppCompatActivity {
     }
 
     public enum LogLevel {
-        ASSERT, ERROR, WARN, INFO, DEBUG, VERBOSE;
+        ASSERT, ERROR, WARN, INFO, DEBUG, VERBOSE
     }
 }
