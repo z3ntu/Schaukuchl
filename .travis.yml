@@ -3,7 +3,7 @@ language: android
 env:
   global:
     - ANDROID_API_LEVEL=23
-    - ANDROID_BUILD_TOOLS_VERSION=23.0.1
+    - ANDROID_BUILD_TOOLS_VERSION=23.0.2
     - ANDROID_ABI=armeabi-v7a
     - ADB_INSTALL_TIMEOUT=8
 
@@ -11,7 +11,7 @@ env:
 before_script:
   - uname -a
   
-script: gradle build
+script: ./gradlew build
 
 android:
   components:
@@ -20,7 +20,7 @@ android:
     - build-tools-$ANDROID_BUILD_TOOLS_VERSION
     - android-$ANDROID_API_LEVEL
     #- sys-img-x86_64-android-$ANDROID_API_LEVEL
-    - sys-img-armeabi-v7a-android-23
+    - sys-img-$ANDROID_ABI-android-$ANDROID_API_LEVEL
     - extra-android-support
     - extra-android-m2repository
 
