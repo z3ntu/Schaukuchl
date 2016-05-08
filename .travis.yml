@@ -14,7 +14,7 @@ env:
 before_script:
   - uname -a
   
-script: gradle build
+script: ./gradlew build
 
 android:
   components:
