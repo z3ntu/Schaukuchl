@@ -46,6 +46,7 @@ public class MenuCardParser implements Response.ErrorListener, Response.Listener
     @Override
     public void onErrorResponse(VolleyError error) {
         for (int i = 0; i < 20; i++) {
+            actionBar.setTitle(sharedPreferences.getString("title", "Schaukuchl"));
             String food = sharedPreferences.getString("food_" + i, "DEFAULT_VALUE");
             Schaukuchl.log(Schaukuchl.LogLevel.INFO, "food_" + i);
             Schaukuchl.log(Schaukuchl.LogLevel.INFO, food);
@@ -75,15 +76,15 @@ public class MenuCardParser implements Response.ErrorListener, Response.Listener
                 Schaukuchl.log(Schaukuchl.LogLevel.VERBOSE, "First Row!");
                 Schaukuchl.log(Schaukuchl.LogLevel.DEBUG, title);
                 actionBar.setTitle(title);
+                editor.putString("title", title);
             }
             /* not headline */
             else {
                 /* NAME */
                 Element pName = row.child(1).child(0);
-                String name = pName.child(0).child(0).ownText();
+                String name = pName.text();
                 if (name.equals(" "))
                     continue;
-                name += " " + pName.child(1).ownText();
 
                 /* PRICE */
                 Element spanPrice = row.child(2).child(0).child(0).child(0);
@@ -99,7 +100,6 @@ public class MenuCardParser implements Response.ErrorListener, Response.Listener
                 recyclerViewAdapter.add(newFood);
 
                 editor.putString("food_" + counter, SaveHelper.getStringFromFood(newFood));
-                Schaukuchl.log(Schaukuchl.LogLevel.INFO, "food_" + counter);
             }
             counter++;
         }
