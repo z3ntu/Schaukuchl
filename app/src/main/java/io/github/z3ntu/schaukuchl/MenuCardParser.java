@@ -22,7 +22,7 @@ import org.jsoup.select.Elements;
  */
 public class MenuCardParser implements Response.ErrorListener, Response.Listener<String> {
 
-    public static final String URL = "http://www.schaukuchl.at/tk/tk.htm";
+    public static final String URL = "https://www.schaukuchl.at/tk/tk.htm";
 
     RequestQueue requestQueue;
     RecyclerViewAdapter recyclerViewAdapter;
